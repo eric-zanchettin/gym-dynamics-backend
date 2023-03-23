@@ -24,7 +24,9 @@ export async function login(request: FastifyRequest, reply: FastifyReply) {
             admin: user.admin,
         };
 
-        return reply.status(200).jwtSign(userToToken);
+        return reply.status(200).jwtSign(userToToken, {
+            expiresIn: '1d',
+        });
     } catch (err) {
         if (err instanceof UserNotFoundError) return reply.status(404).send({ message: err.message });
         if (err instanceof UserPasswordNotMatchError) return reply.status(409).send({ message: err.message });

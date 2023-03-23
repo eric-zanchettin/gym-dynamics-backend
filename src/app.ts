@@ -9,6 +9,7 @@ app.register(appRoutes);
 app.register(cors);
 app.register(fastifyJwt, {
     secret: 'g!m-dyn4m!cs',
+
 });
 
 app.decorate("authenticate", async (request: FastifyRequest, reply: FastifyReply) => {
