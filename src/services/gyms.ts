@@ -9,6 +9,15 @@ interface RegisterParams {
     userId: number;
 };
 
+interface UpdateParams {
+    id: string;
+    name: string;
+    img_src: string;
+    description: string;
+    address: string;
+    cheaper_plan: number;
+};
+
 export class GymsService {
     constructor(private gymsRepository: IGymsRepository) { };
 
@@ -27,5 +36,20 @@ export class GymsService {
                 created_by: userId,
             },
         });
+    };
+
+    async update({ id, name, img_src, description, address, cheaper_plan }: UpdateParams) {
+        return await this.gymsRepository.update({
+            id,
+            name,
+            img_src,
+            description,
+            address,
+            cheaper_plan,
+        });
+    };
+
+    async delete(gymId: string) {
+        return await this.gymsRepository.delete(gymId);
     };
 };

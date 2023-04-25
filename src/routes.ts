@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { login, registerUser, updatePassword } from "./controllers/users";
-import { getGyms, registerGym } from "./controllers/gyms";
+import { deleteGym, getGyms, registerGym, updateGym } from "./controllers/gyms";
 
 export async function appRoutes(app: FastifyInstance) {
     // USERS RELATED
@@ -35,5 +35,19 @@ export async function appRoutes(app: FastifyInstance) {
             onRequest: [app.authenticate],
         },
         registerGym,
+    );
+    app.put(
+        '/gyms',
+        {
+            onRequest: [app.authenticate],
+        },
+        updateGym,
+    );
+    app.delete(
+        '/gyms',
+        {
+            onRequest: [app.authenticate],
+        },
+        deleteGym,
     );
 };
