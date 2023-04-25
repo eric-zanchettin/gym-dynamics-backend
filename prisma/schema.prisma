@@ -18,5 +18,21 @@ model User {
   admin         Boolean
   created_at    DateTime @default(now())
 
+  gyms Gym[]
+
   @@map("users")
+}
+
+model Gym {
+  id           String   @id @default(uuid())
+  img_src      String
+  name         String
+  description  String
+  address      String
+  cheaper_plan Float
+  created_at   DateTime @default(now())
+  User         User?    @relation(fields: [created_by], references: [id])
+  created_by   Int
+
+  @@map("gyms")
 }

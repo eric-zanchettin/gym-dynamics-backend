@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/node": "^18.15.5",
-    "prisma": "^4.11.0",
+    "prisma": "^4.13.0",
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "^5.0.2"
@@ -22,7 +22,7 @@
   "dependencies": {
     "@fastify/cors": "^8.2.1",
     "@fastify/jwt": "^6.7.1",
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "^4.13.0",
     "bcrypt": "^5.1.0",
     "fastify": "^4.15.0",
     "zod": "^3.21.4"

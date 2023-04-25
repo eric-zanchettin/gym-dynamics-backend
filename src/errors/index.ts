@@ -15,3 +15,15 @@ export class UserPasswordNotMatchError extends Error {
         super('User password does not match.');
     };
 };
+
+export class GymNotCreatedError extends Error {
+    constructor() {
+        super('Gym not created.');
+    };
+};
+
+export class GymNotFoundError extends Error {
+    constructor() {
+        super('Gym not found.');
+    };
+};
