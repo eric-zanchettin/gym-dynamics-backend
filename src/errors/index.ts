@@ -27,3 +27,15 @@ export class GymNotFoundError extends Error {
         super('Gym not found.');
     };
 };
+
+export class NonPermittedEvaluation extends Error {
+    constructor() {
+        super('Non permitted evaluation.');
+    };
+};
+
+export class GymEvaluationNotCreatedError extends Error {
+    constructor() {
+        super('Gym Evaluation not created.');
+    };
+};

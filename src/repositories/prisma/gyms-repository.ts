@@ -24,10 +24,28 @@ export class GymsRepository implements IGymsRepository {
                             email: true,
                         },
                     },
+                    gymComments: {
+                        select: {
+                            User: {
+                                select: {
+                                    email: true,
+                                    name: true,
+                                }
+                            },
+                            stars: true,
+                            comment: true,
+                        },
+                    },
                 },
             });
         } else {
-            return await prisma.gym.findMany();
+            return await prisma.gym.findMany({
+                include: {
+                    gymComments: {
+                        select: { stars: true }
+                    }
+                }
+            });
         };
     };
 

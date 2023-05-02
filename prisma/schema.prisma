@@ -18,7 +18,8 @@ model User {
   admin         Boolean
   created_at    DateTime @default(now())
 
-  gyms Gym[]
+  gyms        Gym[]
+  gymComments GymEvaluation[]
 
   @@map("users")
 }
@@ -34,5 +35,20 @@ model Gym {
   User         User?    @relation(fields: [created_by], references: [id])
   created_by   Int
 
+  gymComments GymEvaluation[]
+
   @@map("gyms")
+}
+
+model GymEvaluation {
+  id      String @id @default(uuid())
+  User    User   @relation(fields: [userId], references: [id])
+  userId  Int
+  Gym     Gym    @relation(fields: [gymId], references: [id])
+  gymId   String
+  stars   Int
+  comment String
+
+  @@unique([userId, gymId])
+  @@map("gym_evaluations")
 }

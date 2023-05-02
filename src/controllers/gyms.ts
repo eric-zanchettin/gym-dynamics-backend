@@ -1,4 +1,4 @@
-import fastify, { FastifyRequest, FastifyReply } from "fastify";
+import { FastifyRequest, FastifyReply } from "fastify";
 import { z } from "zod";
 import { GymsRepository } from "../repositories/prisma/gyms-repository";
 import { GymsService } from "../services/gyms";

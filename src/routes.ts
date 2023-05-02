@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { login, registerUser, updatePassword } from "./controllers/users";
 import { deleteGym, getGyms, registerGym, updateGym } from "./controllers/gyms";
+import { postEvaluation } from "./controllers/gymEvaluations";
 
 export async function appRoutes(app: FastifyInstance) {
     // USERS RELATED
@@ -49,5 +50,14 @@ export async function appRoutes(app: FastifyInstance) {
             onRequest: [app.authenticate],
         },
         deleteGym,
+    );
+
+    // GYM EVALUATION RELATED
+    app.post(
+        '/evaluate',
+        {
+            onRequest: [app.authenticate],
+        },
+        postEvaluation,
     );
 };
