@@ -42,9 +42,9 @@ model Gym {
 
 model GymEvaluation {
   id      String @id @default(uuid())
-  User    User   @relation(fields: [userId], references: [id])
+  User    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId  Int
-  Gym     Gym    @relation(fields: [gymId], references: [id])
+  Gym     Gym    @relation(fields: [gymId], references: [id], onDelete: Cascade)
   gymId   String
   stars   Int
   comment String
